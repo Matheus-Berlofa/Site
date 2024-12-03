@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Rabbit Tech</title>
+  <link rel="icon" type="image/x-icon" href="./Style/Untitled_logo.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script defer src="email.js"></script>
+</head>
+<body>
+  <div id="background_cons"></div>
+
+  <div id="app">
+    <header>
+      <a href="./index.html">
+        <img src="./Style/rabbit.jpg" alt="Logo">
+      </a>
+      <ul class="navigation">
+        <li><a href="./index.html" class="navigation_link">Início</a></li>
+        <li><a href="./sobre.html" class="navigation_link">Sobre</a></li>
+        <li><a href="./Contato.html" class="navigation_link">Contato</a></li>
+        <li><a href="./consultoria.html" class="navigation_link">Fale conosco</a></li>
+        <li class="dropdown">
+          <a href="#" class="navigation_link dropdown_toggle">Soluções</a>
+          <ul class="dropdown_menu">
+            <li><a href="#">DevOps</a></li>
+            <li><a href="#">FinOps</a></li>
+            <li><a href="#">Cloud</a></li>
+            <li><a href="#">Migração</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+
+    <main id="contato">
+      <section class="contact-info">
+        <h1>Contato</h1>
+        <p>Dúvidas? Quer conhecer mais do nosso trabalho?</p>
+        <p>Por favor, preencha o formulário de contato, nós entraremos em contato.</p>
+        <form class="contact-form" action="https://formsubmit.co/ajax/berlofa2004@gmail.com" 
+        method="POST" 
+        data-form
+        novalidate>
+
+          <label for="name">Nome Completo*:</label>
+          <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+
+          <label for="email">Email*:</label>
+          <input type="email" id="email" name="email" placeholder="Digite o seu email" required>
+
+          <label for="phone">Telefone*:</label>
+          <input type="tel" id="phone" name="phone" placeholder="Digite seu Telefone" maxlength="15" required>
+
+          <label for="company">Empresa:</label>
+          <input type="text" id="company" name="company" placeholder="Digite o nome da sua empresa" required>
+
+          <label for="message">Mensagem:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit" data-button id="Enviar">Enviar</button>
+          <!-- Elemento para exibir mensagens de feedback -->
+          <p id="feedback" style="display: none;"></p>
+        </form>
+
+        <script>
+          // Função para aplicar a máscara de telefone
+          function aplicarMascaraTelefone(event) {
+              const input = event.target;
+              let telefone = input.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+
+              // Formata o telefone de acordo com o padrão (11) 95570-1768
+              if (telefone.length > 10) {
+                  telefone = telefone.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+              } else if (telefone.length > 5) {
+                  telefone = telefone.replace(/^(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+              } else if (telefone.length > 2) {
+                  telefone = telefone.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+              } else {
+                  telefone = telefone.replace(/^(\d*)/, '($1');
+              }
+
+              input.value = telefone;
+          }
+
+          // Adiciona o evento ao campo de telefone
+          const telefoneInput = document.getElementById('phone');
+          telefoneInput.addEventListener('input', aplicarMascaraTelefone);
+        </script>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo-description">
+        <a href="./index.html">
+          <img src="./Style/rabbit.jpg" alt="Logo da sua empresa" class="footer-logo"></a>
+        <p>Sua empresa de tecnologia, oferecendo soluções em Cloud, migração e suporte especializado para empresas de todos os portes.</p>
+      </div>
+
+      <div class="footer-links">
+        <ul class="footer-column">
+          <li><h4>Navegação</h4></li>
+          <li><a href="./index.html" class="footer-link">Início</a></li>
+          <li><a href="./sobre.html" class="footer-link">Sobre</a></li>
+          <li><a href="./consultoria.html" class="footer-link">Fale conosco</a></li>
+        </ul>
+
+        <ul class="footer-column">
+          <li><h4>Serviços</h4></li>
+          <li><a href="./index.html" class="footer-link">DevOps</a></li>
+          <li><a href="./index.html" class="footer-link">FinOps</a></li>
+          <li><a href="./index.html" class="footer-link">Cloud</a></li>
+          <li><a href="./index.html" class="footer-link">Migração</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Siga-nos</h4>
+        <a href="https://www.instagram.com" target="_blank"><img src="./Style/instagram-logo.png" class="social-icon" alt="Instagram"></a>
+        <a href="https://www.facebook.com" target="_blank"><img src="./Style/2023_Facebook_icon.png" class="social-icon" alt="Facebook"></a>
+        <a href="https://web.whatsapp.com" target="_blank"><img src="./Style/WhatsApp.svg.png" class="social-icon" alt="WhatsApp"></a>
+      </div>
+    </div>
+
+    <p>&copy; 2024 Rabbit Tech. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
